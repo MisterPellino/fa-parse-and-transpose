@@ -7,6 +7,8 @@ from azure.storage.blob import BlobServiceClient
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
+app.register_functions("http_trigger_fa_parse_and_transpose")
+
 @app.route(route="http_trigger_fa_parse_and_transpose")
 @app.blob_input(
     arg_name="excel_table_file",
